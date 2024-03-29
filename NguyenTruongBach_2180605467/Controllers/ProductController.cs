@@ -29,7 +29,7 @@ namespace NguyenTruongBach_2180605467.Controllers
         }
         // Xử lý thêm sản phẩm mới
         [HttpPost]
-        public async Task<IActionResult> Add(Product product)
+        public async Task<IActionResult> Create(Product product)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,7 @@ namespace NguyenTruongBach_2180605467.Controllers
             return View(product);
         }
         // Hiển thị form cập nhật sản phẩm
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Edit(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
             if (product == null)
@@ -66,7 +66,7 @@ namespace NguyenTruongBach_2180605467.Controllers
         }
         // Xử lý cập nhật sản phẩm
         [HttpPost]
-        public async Task<IActionResult> Update(int id, Product product)
+        public async Task<IActionResult> Edit(int id, Product product)
         {
             if (id != product.Id)
             {
